@@ -21,9 +21,10 @@ function App() {
     let value = e.target.value
     if (!value) return
 
-    value = value.replace('div', 'Box')
-    value = value.replace('span', 'Text')
-    value = value.replace('textarea', 'Input')
+    value = value.replaceAll('div', 'Box')
+    value = value.replaceAll('span', 'Text')
+    value = value.replaceAll('textarea', 'Input')
+    value = value.replaceAll('input', 'Input')
 
     value = value.replace(/(?<preClassName>className=(?<quotes>"|'))(?<classNames>.*)(?=\k<quotes>)/g, (matched, preClassName, quotes, classNames) => {
       const classes = classNames.split(' ')
